@@ -62,26 +62,25 @@ def print_words(filename):
     # for word in sorted(dict.keys()):
     #     print(word, dict[word])
     
-def get_count(word_count_tuple):
-    return word_count_tuple[1]
+def get_count(x):
+    return x[1]
 
 def print_top(filename):
     """Prints the top count listing for the given file."""
     word_count = create_word_dict(filename)
     items = sorted(word_count.items(), key=get_count, reverse=True)
-
-    for item in items[:10]:
+    for item in items[:20]:
         print(item[0], item[1])
 
 # This basic command line argument parsing code is provided and calls
 # the print_words() and print_top() functions which you must implement.
 def main(args):
-    if len(args) != 2:
+    if len(args) != 3:
         print('usage: python wordcount.py {--count | --topcount} file')
         sys.exit(1)
 
-    option = args[0]
-    filename = args[1]
+    option = args[1]
+    filename = args[2]
 
     if option == '--count':
         print_words(filename)
