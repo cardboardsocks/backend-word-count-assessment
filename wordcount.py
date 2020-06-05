@@ -34,28 +34,28 @@ import sys
 
 
 def create_word_dict(filename):
-    # word_dict = {}
-    # with open(filename) as f:
-    #     for line in f.readlines():
-    #         for word in line.lower().split():
-    #             if word in word_dict:
-    #                 word_dict[word] +=1
-    #             else:
-    #                 word_dict[word] = 1
-    # return word_dict
+    word_dict = {}
+    with open(filename) as f:
+        for line in f.readlines():
+            for word in line.lower().split():
+                if word in word_dict:
+                    word_dict[word] +=1
+                else:
+                    word_dict[word] = 1
+    return word_dict
 
-    word_count = {}
-    f = open(filename, 'r')
-    for line in f:
-        words = line.split()
-        for word in words:
-            word = word.lower()
-            if word in word_count:
-                word_count[word] += 1
-            else:
-                word_count[word] = 1
-    f.close()
-    return word_count
+    # word_count = {}
+    # f = open(filename, 'r')
+    # for line in f:
+    #     words = line.split()
+    #     for word in words:
+    #         word = word.lower()
+    #         if word in word_count:
+    #             word_count[word] += 1
+    #         else:
+    #             word_count[word] = 1
+    # f.close()
+    # return word_count
     
 
 
@@ -64,21 +64,21 @@ def create_word_dict(filename):
     """
 
 def print_words(filename):
-    # new_dict = make_word_dict(filename)
-    # dict_items = new_dict.items()
-    # sorted_items = sorted(dict_items)
-    # for word in sorted_items:
-    #     print(str(word[0]) + ' : ' + str(word[1]))
+    new_dict = create_word_dict(filename)
+    dict_items = new_dict.items()
+    sorted_items = sorted(dict_items)
+    for word in sorted_items:
+        print(str(word[0]) + ' : ' + str(word[1]))
 
 
-    word_count = create_word_dict(filename)
-    words = sorted(word_count.keys())
-    for word in words:
-        print(word, word_count[word])
-    dict = create_word_dict(filename)
+    # word_count = create_word_dict(filename)
+    # words = sorted(word_count.keys())
+    # for word in words:
+    #     print(word, word_count[word])
+    # new_dict = create_word_dict(filename)
 
-    for word in sorted(dict.keys()):
-        print(word, dict[word])
+    # for word in sorted(new_dict.keys()):
+    #     print(word, new_dict[word])
     
 def get_count(x):
     return x[1]
